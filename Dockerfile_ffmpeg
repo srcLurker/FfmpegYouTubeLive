@@ -1,0 +1,17 @@
+FROM debian:stretch-slim
+
+# Avoid debconf errors.
+ARG DEBIAN_FRONTEND=noninteractive
+ARG TERM=linux
+
+RUN echo "deb http://deb.debian.org/debian stretch-backports main" >> /etc/apt/sources.list
+RUN apt-get update && \
+    apt-get install -y ca-certificates && \
+    apt-get install -y vim ffmpeg
+#RUN apt-get install -y nginx
+#RUN apt-get -t stretch-backports install -y libnginx-mod-rtmp
+RUN mkdir -p /opt/external
+RUN mkdir -p /opt/bin
+COPY start_ffmpeg.sh /opt/bin
+WORKDIR /opt/bin
+ENTRYPOINT /opt/bin/start_ffmpeg.sh

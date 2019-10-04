@@ -1,0 +1,10 @@
+A list of files and what they do:
+
+build_docker_ffmpeg.sh - build a docker image to use for video transcoding
+current_ffmpeg.sh - the ffmpeg transcoder in use right now
+Dockerfile_ffmpeg - the docker file which is used for the transcoding
+ffmpeg_fixed_camera.sh - the ffmpeg transcoder for the HD camera
+ffmpeg_ptz_camera.sh - the ffmpeg transcoder for the higher resolution camera
+run_docker_ffmpeg.sh - start the docker image
+run_docker_test.sh - run the docer image but set the entrypoint to /bin/bash
+start_ffmpeg.sh - the entrypoint file for the docker image
